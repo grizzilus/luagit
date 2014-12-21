@@ -1,0 +1,7 @@
+\ProvidesPackage{luagit}[2014/12/20 v0.1.0]
+
+\directlua{require('luagit')}
+
+\newcommand{\GitCurrentCommit}{\directlua{tex.sprint(CURRENT_HEAD)}}
+
+\newcommand{\GitStatus}{\directlua{tex.sprint(git_status())}}

@@ -1,9 +1,9 @@
 local trim = function(s)
-  return s:match'^%s*(.*%S)' or ''
+  return s:match"^%s*(.*%S)" or ""
 end
 
 local check_if_git_repo = function()
-  local f = io.popen('git rev-parse --is-inside-work-tree')
+  local f = io.popen("git rev-parse --is-inside-work-tree")
   local temp = f:read("*all")
   temp = trim(temp)
   if temp == "true" then
@@ -20,7 +20,7 @@ end
 
 git_commit_hash = function(parameter)
   if check_if_git_repo() then
-    local f = io.popen('git rev-parse ' .. parameter)
+    local f = io.popen("git rev-parse " .. parameter)
     local temp = f:read("*all")
     return clean_lua_output(temp)
   else
@@ -28,11 +28,11 @@ git_commit_hash = function(parameter)
   end
 end
 
-CURRENT_HEAD = git_commit_hash('HEAD')
+CURRENT_HEAD = git_commit_hash("HEAD")
 
 git_status = function()
   if check_if_git_repo() then
-    local f = io.popen('git status -s')
+    local f = io.popen("git status -s")
     local temp = f:read("*all")
     return clean_lua_output(temp)
   else

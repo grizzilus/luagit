@@ -2,6 +2,6 @@
 
 \directlua{require("luagit")}
 
-\newcommand{\GitCurrentCommit}{\directlua{tex.sprint(CURRENT_HEAD)}}
+\newcommand{\gitcurrent}{\directlua{tex.sprint(CURRENT_HEAD)}}
 
-\newcommand{\GitStatus}{\directlua{tex.sprint(git_status())}}
+\newcommand{\gitstatus}{\directlua{tex.sprint(git_status())}}

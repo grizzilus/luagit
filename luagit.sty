@@ -1,7 +1,7 @@
-\ProvidesPackage{luagit}[2014/12/22 v0.2.0]
+\ProvidesPackage{luagit}[2015/02/21 v0.3.0]
 
 \directlua{require("luagit")}
 
-\newcommand{\gitcurrent}{\directlua{tex.sprint(CURRENT_HEAD)}}
+\newcommand{\gitcurrent}[1][40]{\directlua{print_head(#1)}}
 
 \newcommand{\gitstatus}{\directlua{tex.sprint(git_status())}}

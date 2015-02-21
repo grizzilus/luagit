@@ -30,6 +30,15 @@ end
 
 CURRENT_HEAD = git_commit_hash("HEAD")
 
+print_head = function(length)
+  if length >= 40 or length < 0 then
+    tex.sprint(CURRENT_HEAD)
+  else
+    local temp = string.sub(CURRENT_HEAD, 0, length)
+    tex.sprint(temp)
+  end
+end
+
 git_status = function()
   if check_if_git_repo() then
     local f = io.popen("git status -s")

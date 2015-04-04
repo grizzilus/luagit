@@ -1,7 +1,9 @@
-\ProvidesPackage{luagit}[2015/02/21 v0.3.0]
+\ProvidesPackage{luagit}[2015/04/04 v0.4.0]
 
 \directlua{require("luagit")}
 
-\newcommand{\gitcurrent}[1][40]{\directlua{print_head(#1)}}
+\newcommand{\gitpartialcommit}[1]{\directlua{print_head(#1)}}
+
+\newcommand{\gitcurrentcommit}{\gitpartialcommit{40}}
 
 \newcommand{\gitstatus}{\directlua{tex.sprint(git_status())}}
